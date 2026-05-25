@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sistema de Fútbol</title>
+
+    <style>
+
+        body{
+            margin:0;
+            padding:0;
+            font-family: Arial, Helvetica, sans-serif;
+
+            background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+
+            height:100vh;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .contenedor{
+
+            width:500px;
+
+            background:white;
+
+            padding:40px;
+
+            border-radius:20px;
+
+            box-shadow:0px 0px 25px rgba(0,0,0,0.4);
+
+            text-align:center;
+        }
+
+        h1{
+
+            color:#1e3c72;
+
+            margin-bottom:40px;
+
+            font-size:38px;
+        }
+
+        .boton{
+
+            display:block;
+
+            margin:15px 0;
+
+            padding:18px;
+
+            text-decoration:none;
+
+            color:white;
+
+            border-radius:12px;
+
+            font-size:20px;
+
+            transition:0.3s;
+        }
+
+        .clubes{
+            background:#1e90ff;
+        }
+
+        .jugadores{
+            background:#28a745;
+        }
+
+        .entrenadores{
+            background:#ff9800;
+        }
+
+        .listas{
+            background:#6f42c1;
+        }
+
+        .boton:hover{
+
+            transform:scale(1.05);
+
+            opacity:0.9;
+        }
+
+        .footer{
+
+            margin-top:30px;
+
+            color:gray;
+
+            font-size:14px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <h1>
+            ⚽ Sistema de Gestión de Fútbol
+        </h1>
+
+        <a href="/clubes/nuevo" class="boton clubes">
+            ➕ Crear Club
+        </a>
+
+        <a href="/clubes" class="boton listas">
+            📋 Ver Clubes
+        </a>
+
+        <a href="/jugadores/nuevo" class="boton jugadores">
+            👤 Crear Jugador
+        </a>
+
+        <a href="/jugadores/lista" class="boton listas">
+            🏃 Ver Jugadores
+        </a>
+
+        <a href="/entrenadores/nuevo" class="boton entrenadores">
+            🎯 Crear Entrenador
+        </a>
+
+        <a href="/entrenadores/lista" class="boton listas">
+            📑 Ver Entrenadores
+        </a>
+
+        <div class="footer">
+            Proyecto CRUD Spring Boot + H2
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Clubes</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    background:#f4f6f9;
+    padding:40px;
+}
+
+.container{
+    width:90%;
+    margin:auto;
+}
+
+h1{
+    color:#1e3a8a;
+    margin-bottom:20px;
+}
+
+.boton{
+    background:#2563eb;
+    color:white;
+    padding:12px 18px;
+    text-decoration:none;
+    border-radius:8px;
+    transition:0.3s;
+    display:inline-block;
+    margin-bottom:20px;
+}
+
+.boton:hover{
+    background:#1d4ed8;
+    transform:scale(1.05);
+}
+
+.card{
+    background:white;
+    padding:20px;
+    margin-top:20px;
+    border-radius:12px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.detalle{
+    display:inline-block;
+    margin-top:10px;
+    color:#2563eb;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.detalle:hover{
+    text-decoration:underline;
+}
+
+.btn-volver{
+
+    display:inline-block;
+
+    margin-top:30px;
+
+    padding:12px 22px;
+
+    background:#343a40;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:10px;
+
+    transition:0.3s;
+}
+
+.btn-volver:hover{
+
+    background:black;
+
+    transform:scale(1.05);
+}
+
+.boton-editar{
+
+    background:#f59e0b;
+
+    color:white;
+
+    padding:10px 14px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    margin-right:10px;
+}
+
+.boton-eliminar{
+
+    background:#dc2626;
+
+    color:white;
+
+    padding:10px 14px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+}
+
+.boton-editar:hover,
+.boton-eliminar:hover{
+
+    opacity:0.9;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>⚽ Lista de Clubes</h1>
+
+<a href="/clubes/nuevo" class="boton">
+➕ Crear Nuevo Club
+</a>
+
+<div class="card"
+     th:each="club : ${clubes}">
+
+<h2 th:text="${club.nombre}"></h2>
+
+<p>
+<b>🎯 Entrenador:</b>
+<span th:text="${club.entrenador.nombre}"></span>
+</p>
+
+<p>
+<b>🏆 Asociación:</b>
+<span th:text="${club.asociacion.nombre}"></span>
+</p>
+
+<a class="detalle"
+   th:href="@{/clubes/{id}(id=${club.id})}">
+🔍 Ver Detalles
+</a>
+
+<br><br>
+
+<a class="boton-editar"
+   th:href="@{/clubes/editar/{id}(id=${club.id})}">
+    ✏ Editar
+</a>
+
+<a class="boton-eliminar"
+   th:href="@{/clubes/eliminar/{id}(id=${club.id})}">
+    🗑 Eliminar
+</a>
+
+</div>
+
+<a href="/" class="btn-volver">
+    ⬅ Volver al Inicio
+</a>
+
+</div>
+
+</body>
+</html>

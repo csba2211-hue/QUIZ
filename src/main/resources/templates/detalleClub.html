@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Detalle Club</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    background:#f3f4f6;
+    padding:40px;
+}
+
+.container{
+    background:white;
+    width:700px;
+    margin:auto;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+h1{
+    color:#1d4ed8;
+}
+
+.section{
+    margin-top:20px;
+}
+
+li{
+    margin-bottom:8px;
+}
+
+a{
+    text-decoration:none;
+    color:#2563eb;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1 th:text="${club.nombre}"></h1>
+
+<div class="section">
+
+<h2>Entrenador</h2>
+
+<p th:text="${club.entrenador.nombre}"></p>
+
+</div>
+
+<div class="section">
+
+<h2>Asociación</h2>
+
+<p th:text="${club.asociacion.nombre}"></p>
+
+</div>
+
+<div class="section">
+
+<h2>Jugadores</h2>
+
+<ul>
+<li th:each="j : ${club.jugadores}"
+    th:text="${j.nombre}">
+</li>
+</ul>
+
+</div>
+
+<div class="section">
+
+<h2>Competiciones</h2>
+
+<ul>
+<li th:each="c : ${club.competiciones}"
+    th:text="${c.nombre}">
+</li>
+</ul>
+
+</div>
+
+<br>
+
+<a href="/clubes">
+Volver
+</a>
+
+</div>
+
+</body>
+</html>

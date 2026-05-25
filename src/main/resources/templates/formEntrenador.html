@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Crear Entrenador</title>
+
+<style>
+
+body{
+    font-family:Arial;
+    background:linear-gradient(135deg,#ff9966,#ff5e62);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.contenedor{
+    background:white;
+    padding:40px;
+    width:400px;
+    border-radius:20px;
+    box-shadow:0px 0px 20px rgba(0,0,0,0.4);
+    text-align:center;
+}
+
+h1{
+    color:#ff5e62;
+    margin-bottom:25px;
+}
+
+input{
+    width:90%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+button{
+    width:95%;
+    padding:14px;
+    background:#ff5e62;
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-size:17px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.03);
+    opacity:0.9;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 22px;
+    border-radius:10px;
+    text-decoration:none;
+    color:white;
+    background:#343a40;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:black;
+    transform:scale(1.05);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<h1>🎯 Crear Entrenador</h1>
+
+<form th:action="@{/entrenadores/guardar}"
+      th:object="${entrenador}"
+      method="post">
+
+<input type="text"
+       th:field="*{nombre}"
+       placeholder="Nombre">
+
+<input type="text"
+       th:field="*{nacionalidad}"
+       placeholder="Nacionalidad">
+
+<button type="submit">
+    Guardar Entrenador
+</button>
+
+</form>
+
+<a href="/" class="btn">
+    ⬅ Volver al Inicio
+</a>
+
+</div>
+
+</body>
+</html>
